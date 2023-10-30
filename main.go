@@ -1,7 +1,9 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"log"
 )
 
 func main() {
@@ -19,9 +21,11 @@ func main() {
 	fmt.Println(mes)
 	fmt.Println("Заглушка")
 	fmt.Println("   ")
-	message, entered := checkTheClub(15)
+	message, err := checkTheClub(80)
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(message)
-	fmt.Println(entered)
 	
 }
 
@@ -30,10 +34,13 @@ func summ(num_1 int, num_2 int) int {
 	return sum
 }
 
-func checkTheClub(age int)(string, bool) {
-	if (age >= 18) {
-		return "Входи",  true
-	} else {
-		return "Вход запрещен", false
+func checkTheClub(age int)(string, error) {
+	if (age >= 18 && age < 45) {
+		return "Входи",  nil
+	} else if age >= 45  && age < 65{
+		return "Входи",  nil
+	} else if age >= 65{
+		return "Вход запрещен",  errors.New("too old")
 	}
+	return "Вход запрещен", errors.New("too young")
 }
