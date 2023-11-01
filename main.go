@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"log"
 )
 
 func main() {
@@ -21,12 +20,12 @@ func main() {
 	fmt.Println(mes)
 	fmt.Println("Заглушка")
 	fmt.Println("   ")
-	message, err := checkTheClub(80)
-	if err != nil {
-		log.Fatal(err)
-	}
+	message, _ := checkTheClub(80)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 	fmt.Println(message)
-	
+	fmt.Println(calendar("ывыв"))
 }
 
 func summ(num_1 int, num_2 int) int {
@@ -43,4 +42,25 @@ func checkTheClub(age int)(string, error) {
 		return "Вход запрещен",  errors.New("too old")
 	}
 	return "Вход запрещен", errors.New("too young")
+}
+
+func calendar(dayOfWeek string) (string, error) {
+	switch dayOfWeek {
+	case "ПН":
+		return "Понедельник день тяжелый", nil
+	case "ВТ":
+		return "Понедельник день тяжелый", nil
+	case "СР":
+		return "Понедельник день тяжелый", nil
+	case "ЧТ":
+		return "Маленкьая пятница", nil
+	case "ПТ":
+		return "Ура пятница", nil
+	case "СБ":
+		return "Отдыхаем по полной", nil
+	case "ВС":
+		return "Просто отдыхаем", nil
+	default:
+		return "Что за день такой? ", errors.New("no day of week!")
+	}
 }
