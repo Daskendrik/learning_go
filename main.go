@@ -25,7 +25,11 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 	fmt.Println(message)
-	fmt.Println(calendar("ывыв"))
+	fmt.Println(calendar("ПТ"))
+
+	func ()  {
+		fmt.Println("анонисная функция")
+	}()
 }
 
 func summ(num_1 int, num_2 int) int {
