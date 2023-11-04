@@ -37,6 +37,12 @@ func main() {
 	func ()  {
 		fmt.Println("анонисная функция")
 	}()
+
+	text := "простой текст"
+	text_2 := "второй простой текст"
+	setText(&text, text_2)
+	fmt.Println(text)
+	fmt.Println(text_2)
 }
 
 func summ(num_1 int, num_2 int) int {
@@ -74,4 +80,11 @@ func calendar(dayOfWeek string) (string, error) {
 	default:
 		return "Что за день такой? ", errors.New("no day of week!")
 	}
+}
+
+func setText(text *string, text_2 string){
+	*text += " из функции добавлен текст"
+	text_2 += " а это без * из функции"
+	fmt.Println(*text)
+	fmt.Println(text_2)
 }
