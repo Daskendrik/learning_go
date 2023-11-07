@@ -43,6 +43,9 @@ func main() {
 	setText(&text, text_2)
 	fmt.Println(text)
 	fmt.Println(text_2)
+
+	arr := [3]string{"1","2","3"}
+	fmt.Println(arr)
 }
 
 func summ(num_1 int, num_2 int) int {
